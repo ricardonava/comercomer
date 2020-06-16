@@ -1,19 +1,30 @@
 import Layout from '../components/layout';
+import Card from '../components/card';
 
 export default function Home() {
   return (
     <Layout>
-      <body>
-        <section className="section">
-          <div className="container">
-            <h1 className="title">Section</h1>
-            <h2 className="subtitle">
-              A simple container to divide your page into{' '}
-              <strong>sections</strong>, like the one you're currently reading
-            </h2>
+      <div className="columns is-multiline">
+        {[
+          'one',
+          'two',
+          'three',
+          'four',
+          'five',
+          'six',
+          'seven',
+          'eight',
+          'nine',
+          'ten',
+          'eleven',
+          'twelve',
+          'thirteen'
+        ].map((number) => (
+          <div className="column is-one-third">
+            <Card number={number} />
           </div>
-        </section>
-      </body>
+        ))}
+      </div>
     </Layout>
   );
 }
