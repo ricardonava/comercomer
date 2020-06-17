@@ -13,7 +13,7 @@ export default ({ children }) => {
       </Head>
       <NavBar />
       <div className="container">
-        <body>{children}</body>
+        <body className="has-navbar-fixed-top">{children}</body>
       </div>
       <Footer />
     </>

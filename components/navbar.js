@@ -3,7 +3,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 export default () => (
-  <nav className="navbar" role="navigation" aria-label="main navigation">
+  <nav
+    className="navbar is-fixed-top"
+    role="navigation"
+    aria-label="main navigation"
+  >
     <div className="navbar-brand">
       <a className="navbar-item" href="https://bulma.io">
         <img
