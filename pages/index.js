@@ -1,30 +1,12 @@
 import Layout from '../components/layout';
-import Card from '../components/card';
+import Kitchens from '../components/kitchens';
+
+import kitchensData from '../kitchensData';
 
 export default function Home() {
   return (
     <Layout>
-      <div className="columns is-multiline">
-        {[
-          'one',
-          'two',
-          'three',
-          'four',
-          'five',
-          'six',
-          'seven',
-          'eight',
-          'nine',
-          'ten',
-          'eleven',
-          'twelve',
-          'thirteen'
-        ].map((number) => (
-          <div className="column is-one-third">
-            <Card number={number} />
-          </div>
-        ))}
-      </div>
+      <Kitchens kitchens={kitchensData} />
     </Layout>
   );
 }

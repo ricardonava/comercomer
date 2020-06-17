@@ -1,38 +1,45 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
-export default ({ number }) => (
-  <div className="card">
-    <div className="card-image">
-      <figure className="image is-2by1">
-        <img
-          src="https://bulma.io/images/placeholders/640x320.png"
-          alt="Placeholder image"
-        />
-      </figure>
-    </div>
-    <div className="card-content">
-      <div className="media">
-        <div className="media-left">
-          <figure className="image is-48x48">
-            <img
-              src="https://bulma.io/images/placeholders/96x96.png"
-              alt="Placeholder image"
-            />
-          </figure>
-        </div>
-        <div className="media-content">
-          <p className="title is-4">{number}</p>
-          <p className="subtitle is-6">@johnsmith</p>
-        </div>
+export default ({ props }) => {
+  const { name, branch, hours, logo, cover } = props;
+  return (
+    <div className="card">
+      <div className="card-image">
+        <figure className="image is-3by1">
+          <img src={cover} alt="Placeholder image" />
+        </figure>
       </div>
+      <div className="card-content">
+        <div className="media">
+          <div className="media-left">
+            <figure className="image is-64x64">
+              <img src={logo} alt="Placeholder image" />
+            </figure>
+          </div>
+          <div className="media-content">
+            <p className="title is-4">{name}</p>
+            <p className="subtitle is-6">{branch}</p>
+          </div>
+          <div className="media-right">
+            <p id="ver-menu" className="subtitle is-6">
+              <strong className="button is-white">
+                <a>VER MENU</a>
+              </strong>
+            </p>
+          </div>
+        </div>
 
-      <div className="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec
-        iaculis mauris. <a>@bulmaio</a>.<a href="#">#css</a>{' '}
-        <a href="#">#responsive</a>
-        <br />
-        <time dateTime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+        <div className="content">
+          <p>
+            Horario: <time>{hours}</time>
+            <br />
+            Telefono: <a href="tel:+6494452687">445-2663</a>
+            <br />
+            <address>Blvd. Costero s/n, Acapulco, 22890 Ensenada, B.C.</address>
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
