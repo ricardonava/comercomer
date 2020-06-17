@@ -12,9 +12,9 @@ export default ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-      <div className="container">
-        <body className="has-navbar-fixed-top">{children}</body>
-      </div>
+      <body className="has-navbar-fixed-top">
+        <div className="container">{children}</div>
+      </body>
       <Footer />
     </>
   );

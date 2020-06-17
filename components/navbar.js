@@ -17,7 +17,7 @@ export default () => (
         />
       </a>
 
-      <a
+      {/* <a
         onClick={() =>
           document.querySelector('.navbar-menu').classList.toggle('is-active')
         }
@@ -61,7 +61,7 @@ export default () => (
             <a className="button is-light">Log in</a>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   </nav>
 );
