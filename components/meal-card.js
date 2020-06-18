@@ -15,7 +15,7 @@ export default ({ props }) => {
             <p className="subtitle is-6">{branch}</p>
           </div>
           <div className="media-right">
-            <figure className="image is-64x64">
+            <figure className="image is-96x96">
               <img src={logo} alt="Placeholder image" />
             </figure>
           </div>

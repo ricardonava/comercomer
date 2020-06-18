@@ -6,7 +6,9 @@ import DATA from '../kitchensData';
 export default function Home() {
   return (
     <Layout>
-      <Kitchens kitchens={DATA} />
+      <main>
+        <Kitchens kitchens={DATA} />
+      </main>
     </Layout>
   );
 }

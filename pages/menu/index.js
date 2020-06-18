@@ -16,7 +16,9 @@ export default function Menu() {
           </li>
         </ul>
       </nav>
-      <Meals meals={DATA} />
+      <main>
+        <Meals meals={DATA} />
+      </main>
     </Layout>
   );
 }
