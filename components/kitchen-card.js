@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/img-redundant-alt */
+import Link from 'next/link';
+
 export default ({ props }) => {
   const { name, branch, hours, logo, cover } = props;
   return (
@@ -24,7 +26,9 @@ export default ({ props }) => {
           <div className="media-right">
             <p id="ver-menu" className="subtitle is-6">
               <strong className="button is-white">
-                <a>VER MENU</a>
+                <Link href="/menu">
+                  <a>VER MENU</a>
+                </Link>
               </strong>
             </p>
           </div>

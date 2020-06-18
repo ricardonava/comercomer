@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-import Card from './card';
+import Card from './meal-card';
 
-export default ({ kitchens }) => (
+export default ({ meals }) => (
   <div className="columns is-multiline">
-    {kitchens.map((kitchen) => (
+    {meals.map((meal) => (
       <div className="column is-one-third">
-        <Card props={kitchen} />
+        <Card props={meal} />
       </div>
     ))}
   </div>

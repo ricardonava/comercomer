@@ -1,12 +1,12 @@
 import Layout from '../components/layout';
-import Kitchens from '../components/kitchens';
+import Kitchens from '../components/kitchen-listing';
 
-import kitchensData from '../kitchensData';
+import DATA from '../kitchensData';
 
 export default function Home() {
   return (
     <Layout>
-      <Kitchens kitchens={kitchensData} />
+      <Kitchens kitchens={DATA} />
     </Layout>
   );
 }
