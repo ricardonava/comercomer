@@ -10,18 +10,17 @@ import withApollo from '../realm/RealmApolloProvider';
 const QUERY = gql`
   query {
     kitchens {
-      _id
       cover
+      direccion
       logo
       nombre
-      sucursal
+      tel
     }
   }
 `;
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY);
-
   if (loading || !data) {
     return (
       <Layout>

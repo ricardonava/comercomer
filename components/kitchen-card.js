@@ -4,7 +4,7 @@
 import Link from 'next/link';
 
 export default ({ props }) => {
-  const { nombre, sucursal, logo, cover } = props;
+  const { cover, direccion, logo, nombre, tel } = props;
   return (
     <div className="card">
       <div className="card-image">
@@ -21,7 +21,7 @@ export default ({ props }) => {
           </div>
           <div className="media-content">
             <p className="title is-4">{nombre}</p>
-            <p className="subtitle is-6">{sucursal}</p>
+            <p className="subtitle is-6">{direccion}</p>
           </div>
           <div className="media-right">
             <p id="ver-menu" className="subtitle is-6">
@@ -38,7 +38,7 @@ export default ({ props }) => {
           <p>
             {/* Horario: <time>{hours}</time> */}
             <br />
-            Telefono: <a href="tel:+6494452687">445-2663</a>
+            Telefono: <a href={`tel:+${tel}`}>{tel.substring(2)}</a>
             <br />
             <address>Blvd. Costero s/n, Acapulco, 22890 Ensenada, B.C.</address>
           </p>

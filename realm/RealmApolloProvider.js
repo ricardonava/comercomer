@@ -20,13 +20,9 @@ const app = new RealmWeb.App({
 // Add an Authorization header
 // With a valid user access token to all GraphQL requests
 const authorizationHeaderLink = setContext(async (_, { headers }) => {
-  if (app.currentUser) {
-    // Refreshing custom data also refreshes the access token
-    await app.currentUser.refreshCustomData();
-  } else {
-    // If no user is logged in, log in an anonymous user
-    await app.logIn(RealmWeb.Credentials.anonymous());
-  }
+  // If no user is logged in, log in an anonymous user
+  await app.logIn(RealmWeb.Credentials.anonymous());
+
   // Get a valid access token for the current user
   const { accessToken } = app.currentUser;
   // console.log('currentUser', accessToken, app.currentUser);
