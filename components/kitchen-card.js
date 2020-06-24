@@ -3,8 +3,12 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import Link from 'next/link';
 
+const date = new Date();
+
+console.log(date.getDay());
+
 export default ({ props }) => {
-  const { cover, direccion, logo, nombre, tel } = props;
+  const { cover, direccion, logo, nombre, tel, horario } = props;
   return (
     <div className="card">
       <div className="card-image">
@@ -36,11 +40,11 @@ export default ({ props }) => {
 
         <div className="content">
           <p>
-            {/* Horario: <time>{hours}</time> */}
+            Horario: <time>{horario[date.getDay()]}</time>
             <br />
             Telefono: <a href={`tel:+${tel}`}>{tel.substring(2)}</a>
             <br />
-            <address>Blvd. Costero s/n, Acapulco, 22890 Ensenada, B.C.</address>
+            {/* <address>Blvd. Costero s/n, Acapulco, 22890 Ensenada, B.C.</address> */}
           </p>
         </div>
       </div>

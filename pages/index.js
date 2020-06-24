@@ -15,6 +15,7 @@ const QUERY = gql`
       logo
       nombre
       tel
+      horario
     }
   }
 `;

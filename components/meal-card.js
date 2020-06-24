@@ -4,15 +4,23 @@
 // import Link from 'next/link';
 
 export default ({ props }) => {
-  const { nombre, porcion, precio, thumb } = props;
+  const { nombre, porcion, precio, thumb, descripcion } = props;
+  const porciones = [];
+  for (let i = 0; i < porcion; i += 1) {
+    porciones.push(
+      <span className="icon has-text-success">
+        <i className="fas fa-child" />
+      </span>
+    );
+  }
   return (
     <div className="card">
       <div className="card-content">
         <div className="media">
           {/* <div className="media-left"></div> */}
           <div className="media-content">
-            <p className="title is-6">{nombre}</p>
-            <p className="subtitle is-6">{precio}</p>
+            <p className="title is-4">{nombre}</p>
+            <p className="subtitle is-6">{descripcion.corta}</p>
           </div>
           <div className="media-right">
             <figure className="image is-128x128">
@@ -22,7 +30,9 @@ export default ({ props }) => {
         </div>
 
         <div className="content">
-          <p className="subtitle is-6">{porcion}</p>
+          <p className="title is-5">
+            {precio}mxn {porciones}
+          </p>
 
           {/* <p>
             Horario: <time>{hours}</time>

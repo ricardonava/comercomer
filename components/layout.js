@@ -10,6 +10,10 @@ export default ({ children }) => {
       <Head>
         <title>Create Next App with Bulma.io</title>
         <link rel="icon" href="/favicon.ico" />
+        <script
+          defer
+          src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+        />
       </Head>
       <NavBar />
       <body className="has-navbar-fixed-top">

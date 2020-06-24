@@ -13,6 +13,9 @@ const QUERY = gql`
         porcion
         precio
         thumb
+        descripcion {
+          corta
+        }
       }
     }
   }
