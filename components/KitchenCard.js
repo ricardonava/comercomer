@@ -5,12 +5,10 @@ import Link from 'next/link';
 
 const date = new Date();
 
-console.log(date.getDay());
-
 export default ({ props }) => {
-  const { cover, direccion, logo, nombre, tel, horario } = props;
+  const { cover, direccion, logo, nombre, tel, horario, _id } = props;
   return (
-    <div className="card">
+    <div className="card" id={_id}>
       <div className="card-image">
         <figure className="image is-3by1">
           <img src={cover} alt="Placeholder image" />
@@ -30,7 +28,10 @@ export default ({ props }) => {
           <div className="media-right">
             <p id="ver-menu" className="subtitle is-6">
               <strong className="button is-white">
-                <Link href="/menu">
+                <Link
+                  href={{ pathname: '/cocina' }}
+                  // as={`/${nombre}`}
+                >
                   <a>VER MENU</a>
                 </Link>
               </strong>

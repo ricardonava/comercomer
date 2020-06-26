@@ -14,7 +14,7 @@ export default ({ props }) => {
     );
   }
   return (
-    <div className="card">
+    <div className="card" id={thumb}>
       <div className="card-content">
         <div className="media">
           {/* <div className="media-left"></div> */}

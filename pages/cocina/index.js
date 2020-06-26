@@ -1,10 +1,10 @@
-import App from '../components/App';
-import KitchenList, { ALL_KITCHENS_QUERY } from '../components/KitchenList';
-import { initializeApollo } from '../lib/RealmApolloClient';
+import App from '../../components/App';
+import MealList, { ALL_MEALS_QUERY } from '../../components/MealList';
+import { initializeApollo } from '../../lib/RealmApolloClient';
 
 const IndexPage = () => (
   <App>
-    <KitchenList />
+    <MealList />
   </App>
 );
 
@@ -12,7 +12,7 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo();
 
   await apolloClient.query({
-    query: ALL_KITCHENS_QUERY
+    query: ALL_MEALS_QUERY
   });
 
   return {
