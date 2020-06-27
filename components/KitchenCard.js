@@ -7,6 +7,7 @@ const date = new Date();
 
 export default ({ props }) => {
   const { cover, direccion, logo, nombre, tel, horario, _id } = props;
+
   return (
     <div className="card" id={_id}>
       <div className="card-image">
@@ -29,7 +30,7 @@ export default ({ props }) => {
             <p id="ver-menu" className="subtitle is-6">
               <strong className="button is-white">
                 <Link
-                  href={{ pathname: '/cocina' }}
+                  href={{ pathname: `/cocina/`, query: { params: _id } }}
                   // as={`/${nombre}`}
                 >
                   <a>VER MENU</a>
