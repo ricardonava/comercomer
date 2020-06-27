@@ -29,10 +29,7 @@ export default ({ props }) => {
           <div className="media-right">
             <p id="ver-menu" className="subtitle is-6">
               <strong className="button is-white">
-                <Link
-                  href={{ pathname: `/cocina/`, query: { params: _id } }}
-                  // as={`/${nombre}`}
-                >
+                <Link href="/cocina/[id]" as={`/cocina/${_id}`}>
                   <a>VER MENU</a>
                 </Link>
               </strong>

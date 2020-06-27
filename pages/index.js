@@ -37,12 +37,6 @@ const Home = () => {
   );
 };
 
-// Home.getInitialProps = (ctx) => {
-//   const apolloClient = ctx.apolloClient;
-
-//   console.log(apolloClient);
-// };
-
 export default withApollo(Home);
 
 // You can also override the configs for withApollo here, so if you want
