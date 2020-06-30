@@ -1,10 +1,19 @@
+/* eslint-disable no-underscore-dangle */
 // pages/index.js
 import gql from 'graphql-tag';
 import PropTypes, { object } from 'prop-types';
 import App from '../../components/App';
 import MealList from '../../components/MealList';
-import withApollo from '../../lib/withApollo';
+import { initializeApollo } from '../../lib/RealmApolloClient';
 // import { getDataFromTree } from '@apollo/react-ssr';
+
+export const ALL_KITCHENS_ID_QUERY = gql`
+  query {
+    kitchens {
+      _id
+    }
+  }
+`;
 
 export const ALL_MEALS_QUERY = gql`
   query kitchen($query: KitchenQueryInput) {
@@ -23,13 +32,12 @@ export const ALL_MEALS_QUERY = gql`
 `;
 
 const Kitchen = ({ data, loading }) => {
-  if (loading || !data) {
+  if (loading)
     return (
       <App>
-        <h1>loading...</h1>
+        <div>Loading</div>
       </App>
     );
-  }
   return (
     <App>
       <MealList data={data} />
@@ -37,24 +45,50 @@ const Kitchen = ({ data, loading }) => {
   );
 };
 
-Kitchen.getInitialProps = async (ctx) => {
-  const { id: _id } = ctx.query;
-  const { data, loading } = await ctx.apolloClient.query({
+export async function getStaticPaths() {
+  const apolloClient = initializeApollo();
+
+  const { data } = await apolloClient.query({
+    query: ALL_KITCHENS_ID_QUERY
+  });
+
+  const paths = data.kitchens.map((kitchen) => ({
+    params: { id: kitchen._id }
+  }));
+
+  return {
+    paths,
+    fallback: false
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const { id: _id } = params;
+  const apolloClient = initializeApollo();
+
+  const { data, loading } = await apolloClient.query({
     query: ALL_MEALS_QUERY,
     variables: {
       query: { _id }
     }
   });
-  // console.log(data.kitchen);
-  return { data, loading };
-};
+
+  return {
+    props: {
+      // initialApolloState: apolloClient.cache.extract(),
+      data,
+      loading
+    },
+    unstable_revalidate: 1
+  };
+}
 
 Kitchen.propTypes = {
   data: PropTypes.arrayOf(object).isRequired,
   loading: PropTypes.bool.isRequired
 };
 
-export default withApollo(Kitchen);
+export default Kitchen;
 
 // export default withApollo(Kitchen, {
 //   ssr: false
