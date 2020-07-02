@@ -1,9 +1,7 @@
 /* eslint-disable react/prop-types */
-import dynamic from 'next/dynamic';
-
-const Footer = dynamic(import('./Footer'));
-import Header from 'Header';
-import NavBar from 'NavBar';
+import Footer from './Footer';
+import Header from './Header';
+import NavBar from './NavBar';
 
 export default function App({ children }) {
   return (
