@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
-import Footer from 'Footer';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(import('./Footer'));
 import Header from 'Header';
 import NavBar from 'NavBar';
 
