@@ -6,46 +6,38 @@ import Link from 'next/link';
 const date = new Date();
 
 export default ({ props }) => {
-  const { cover, direccion, logo, nombre, tel, horario, _id } = props;
+  const { direccion, logo, nombre, tel, horario, _id } = props;
 
   return (
-    <div className="card" key={_id}>
-      <div className="card-image">
-        <figure className="image is-3by1">
-          <img src={cover} alt="Placeholder image" />
-        </figure>
-      </div>
-      <div className="card-content">
-        <div className="media">
-          <div className="media-left">
-            <figure className="image is-64x64">
-              <img src={logo} alt="Placeholder image" />
-            </figure>
-          </div>
-          <div className="media-content">
-            <p className="title is-4">{nombre}</p>
-            <p className="subtitle is-6">{direccion}</p>
-          </div>
-          <div className="media-right">
-            <p id="ver-menu" className="subtitle is-6">
-              <Link href="/cocina/[id]" as={`/cocina/${_id}`}>
-                <strong className="button is-white">
-                  <a>VER MENU</a>
-                </strong>
-              </Link>
-            </p>
+    <div className="box" key={_id}>
+      <div className="media">
+        <div className="media-left">
+          <figure className="image is-64x64">
+            <img src={logo} alt="Placeholder image" />
+          </figure>
+        </div>
+        <div className="media-content">
+          <div className="content">
+            <h1 className="title">{nombre}</h1>
           </div>
         </div>
-
-        <div className="content">
-          <p>
-            Horario: <time>{horario[date.getDay()]}</time>
-            <br />
-            Telefono: <a href={`tel:+${tel}`}>{tel.substring(2)}</a>
-            <br />
-            {/* <address>Blvd. Costero s/n, Acapulco, 22890 Ensenada, B.C.</address> */}
+        <div className="media-right">
+          <p id="ver-menu" className="subtitle is-6">
+            <Link href="/cocina/[id]" as={`/cocina/${_id}`}>
+              <a className="button is-orange">MENU</a>
+            </Link>
           </p>
         </div>
+      </div>
+
+      <div className="content">
+        <p>
+          Horario: <time>{horario[date.getDay()]}</time>
+          <br />
+          Telefono: <a href={`tel:+${tel}`}>{tel.substring(2)}</a>
+          <br />
+          <address>{direccion}</address>
+        </p>
       </div>
     </div>
   );

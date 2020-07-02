@@ -29,7 +29,7 @@ export default function KitchenList() {
 
   return (
     <section>
-      <div className="columns is-multiline">
+      <div className="columns is-desktop">
         {kitchens.map((kitchen) => (
           <div className="column is-one-third">
             <Card props={kitchen} />
