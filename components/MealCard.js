@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 // import Link from 'next/link';
 
-export default ({ props }) => {
+export default ({ props }, key) => {
   const { nombre, porcion, precio, thumb, descripcion } = props;
   const porciones = [];
   for (let i = 0; i < porcion; i += 1) {
@@ -14,7 +14,7 @@ export default ({ props }) => {
     );
   }
   return (
-    <div className="card" id={thumb}>
+    <div className="card" key={key}>
       <div className="card-content">
         <div className="media">
           {/* <div className="media-left"></div> */}

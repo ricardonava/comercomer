@@ -9,7 +9,7 @@ export default ({ props }) => {
   const { cover, direccion, logo, nombre, tel, horario, _id } = props;
 
   return (
-    <div className="card" id={_id}>
+    <div className="card" key={_id}>
       <div className="card-image">
         <figure className="image is-3by1">
           <img src={cover} alt="Placeholder image" />
