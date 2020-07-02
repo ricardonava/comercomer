@@ -28,11 +28,11 @@ export default ({ props }) => {
           </div>
           <div className="media-right">
             <p id="ver-menu" className="subtitle is-6">
-              <strong className="button is-white">
-                <Link href="/cocina/[id]" as={`/cocina/${_id}`}>
+              <Link href="/cocina/[id]" as={`/cocina/${_id}`}>
+                <strong className="button is-white">
                   <a>VER MENU</a>
-                </Link>
-              </strong>
+                </strong>
+              </Link>
             </p>
           </div>
         </div>
