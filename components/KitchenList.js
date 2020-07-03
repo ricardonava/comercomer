@@ -1,6 +1,3 @@
-/* eslint-disable prefer-object-spread */
-/* eslint-disable react/prop-types */
-
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import ErrorMessage from './ErrorMessage';

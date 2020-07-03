@@ -1,4 +1,5 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
+
 export default function ErrorMessage({ message }) {
   return (
     <aside>
@@ -14,3 +15,7 @@ export default function ErrorMessage({ message }) {
     </aside>
   );
 }
+
+ErrorMessage.propTypes = {
+  message: PropTypes.string.isRequired
+};

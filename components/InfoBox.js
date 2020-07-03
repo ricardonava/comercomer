@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 
 const InfoBox = ({ children }) => (
   <div className="info">
@@ -15,5 +15,9 @@ const InfoBox = ({ children }) => (
     {children}
   </div>
 );
+
+InfoBox.propTypes = {
+  children: PropTypes.element.isRequired
+};
 
 export default InfoBox;

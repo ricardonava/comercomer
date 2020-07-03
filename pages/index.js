@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import App from '../components/App';
 import KitchenList from '../components/KitchenList';
 

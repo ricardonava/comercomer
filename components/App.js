@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+import PropTypes from 'prop-types';
 import Footer from './Footer';
 import Header from './Header';
 import NavBar from './NavBar';
@@ -15,3 +15,7 @@ export default function App({ children }) {
     </>
   );
 }
+
+App.propTypes = {
+  children: PropTypes.element.isRequired
+};

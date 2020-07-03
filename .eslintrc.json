@@ -8,6 +8,13 @@
     "node": true
   },
   "rules": {
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["to"]
+      }
+    ],
     "jsx-a11y/href-no-hash": ["off"],
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],

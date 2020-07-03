@@ -1,20 +1,9 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/img-redundant-alt */
-// import Link from 'next/link';
+import PropTypes from 'prop-types';
 
-export default ({ props }, key) => {
-  const { nombre, porcion, precio, thumb, descripcion } = props;
-  const porciones = [];
-  for (let i = 0; i < porcion; i += 1) {
-    porciones.push(
-      <span className="icon has-text-black">
-        <i className="fas fa-child" />
-      </span>
-    );
-  }
+const MealCard = ({ props }) => {
+  const { nombre, precio, thumb, descripcion } = props;
   return (
-    <div className="box" key={key}>
+    <div className="box">
       <div className="media">
         {/* <div className="media-left"></div> */}
         <div className="media-content">
@@ -23,7 +12,7 @@ export default ({ props }, key) => {
         </div>
         <div className="media-right">
           <figure className="image is-128x128">
-            <img className="is-rounded" src={thumb} alt="Placeholder image" />
+            <img className="is-rounded" src={thumb} alt="Food Thumbnail" />
           </figure>
         </div>
       </div>
@@ -31,17 +20,26 @@ export default ({ props }, key) => {
       <div className="content">
         <p className="title is-5">
           {precio}
-          <span className="subtitle is-6">mxn</span> {porciones}
+          <span className="subtitle is-6">mxn</span>
         </p>
-
-        {/* <p>
-            Horario: <time>{hours}</time>
-            <br />
-            Telefono: <a href="tel:+6494452687">445-2663</a>
-            <br />
-            <address>Blvd. Costero s/n, Acapulco, 22890 Ensenada, B.C.</address>
-          </p> */}
       </div>
     </div>
   );
 };
+
+MealCard.defaultProps = {
+  nombre: 'Nombre',
+  thumb: 'Image',
+  descripcion: { larga: 'Larga', corta: 'Corta' },
+  precio: 0.0
+};
+
+MealCard.propTypes = {
+  props: PropTypes.objectOf(PropTypes.any).isRequired,
+  nombre: PropTypes.string,
+  thumb: PropTypes.string,
+  descripcion: PropTypes.objectOf(PropTypes.string),
+  precio: PropTypes.number
+};
+
+export default MealCard;
