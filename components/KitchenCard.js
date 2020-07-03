@@ -18,19 +18,11 @@ export default ({ props }) => {
         </div>
         <div className="media-content">
           <div className="content">
-            <h1 className="title">{nombre}</h1>
+            <h1 className="title is-4">{nombre}</h1>
           </div>
         </div>
-        <div className="media-right">
-          <p id="ver-menu" className="subtitle is-6">
-            <Link href="/cocina/[id]" as={`/cocina/${_id}`}>
-              <a className="button is-orange">MENU</a>
-            </Link>
-          </p>
-        </div>
       </div>
-
-      <div className="content">
+      <div className="content kitchen-info">
         <p>
           Horario: <time>{horario[date.getDay()]}</time>
           <br />
@@ -38,6 +30,11 @@ export default ({ props }) => {
           <br />
           <address>{direccion}</address>
         </p>
+        <Link href="/cocina/[id]" as={`/cocina/${_id}`}>
+          <a className="button is-fullwidth is-orange title is-5 is-medium">
+            MENU
+          </a>
+        </Link>
       </div>
     </div>
   );
