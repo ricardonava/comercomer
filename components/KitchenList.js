@@ -28,7 +28,7 @@ export default function KitchenList() {
   const { kitchens } = data;
 
   return (
-    <section>
+    <section className="section">
       <div className="columns is-desktop">
         {kitchens.map((kitchen) => (
           <div className="column is-one-third">

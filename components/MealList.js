@@ -33,7 +33,7 @@ export default function MealList({ id }) {
   const { kitchen } = data;
 
   return (
-    <section>
+    <section className="section">
       <div className="columns is-multiline">
         {kitchen.comidas.map((comida) => (
           <div className="column is-one-third">

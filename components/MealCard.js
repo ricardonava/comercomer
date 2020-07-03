@@ -23,14 +23,15 @@ export default ({ props }, key) => {
         </div>
         <div className="media-right">
           <figure className="image is-128x128">
-            <img src={thumb} alt="Placeholder image" />
+            <img className="is-rounded" src={thumb} alt="Placeholder image" />
           </figure>
         </div>
       </div>
 
       <div className="content">
         <p className="title is-5">
-          {precio}mxn {porciones}
+          {precio}
+          <span className="subtitle is-6">mxn</span> {porciones}
         </p>
 
         {/* <p>
