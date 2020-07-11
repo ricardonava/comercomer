@@ -6,12 +6,7 @@ export default () => (
   >
     <div className="navbar-brand">
       <span className="navbar-item">
-        <img
-          alt="App logo"
-          src="https://bulma.io/images/bulma-logo.png"
-          width="112"
-          height="28"
-        />
+        <h1 className="title">ComerComer</h1>
       </span>
     </div>
   </nav>

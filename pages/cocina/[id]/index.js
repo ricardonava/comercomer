@@ -2,9 +2,9 @@
 /* eslint-disable no-underscore-dangle */
 // pages/index.js
 import gql from 'graphql-tag';
-import App from '../../components/App';
-import MealList from '../../components/MealList';
-import { initializeApollo } from '../../lib/RealmApolloClient';
+import App from '../../../components/App';
+import MealList from '../../../components/MealList';
+import { initializeApollo } from '../../../lib/RealmApolloClient';
 
 export const ALL_KITCHENS_ID_QUERY = gql`
   query {
