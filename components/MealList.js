@@ -19,7 +19,7 @@ export const ALL_MEALS_QUERY = gql`
 
 const MealList = ({ id }) => {
   const { loading, error, data } = useQuery(ALL_MEALS_QUERY, {
-    variables: { query: { created_by: { _id: '5f0e7002b8628e9c67565ea2' } } }
+    variables: { query: { created_by: { _id: id } } }
   });
 
   if (error) return <ErrorMessage message="Error al cargar las cocinas." />;
