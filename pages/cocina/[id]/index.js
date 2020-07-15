@@ -6,26 +6,10 @@ import App from '../../../components/App';
 import MealList from '../../../components/MealList';
 import { initializeApollo } from '../../../lib/RealmApolloClient';
 
-export const ALL_KITCHENS_ID_QUERY = gql`
+const ALL_VENUES_QUERY = gql`
   query {
-    kitchens {
+    venues {
       _id
-    }
-  }
-`;
-
-export const ALL_MEALS_QUERY = gql`
-  query kitchen($query: KitchenQueryInput) {
-    kitchen(query: $query) {
-      comidas {
-        nombre
-        porcion
-        precio
-        thumb
-        descripcion {
-          corta
-        }
-      }
     }
   }
 `;
@@ -42,11 +26,11 @@ export async function getStaticPaths() {
   const apolloClient = initializeApollo();
 
   const { data } = await apolloClient.query({
-    query: ALL_KITCHENS_ID_QUERY
+    query: ALL_VENUES_QUERY
   });
 
-  const paths = data.kitchens.map((kitchen) => ({
-    params: { id: kitchen._id }
+  const paths = data.venues.map((venue) => ({
+    params: { id: venue._id }
   }));
 
   return {
