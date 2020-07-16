@@ -4,8 +4,8 @@
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { useRouter } from 'next/router';
-import App from '../../../components/App';
-import ErrorMessage from '../../../components/ErrorMessage';
+import App from '../../components/App';
+import ErrorMessage from '../../components/ErrorMessage';
 
 export const MEAL_QUERY = gql`
   query meal($query: MealQueryInput) {
@@ -17,12 +17,25 @@ export const MEAL_QUERY = gql`
   }
 `;
 
+export const MEALS_ID_QUERY = gql`
+  query {
+    meals {
+      _id
+    }
+  }
+`;
+
 const Meal = () => {
   const router = useRouter();
-  const { id, name } = router.query;
+  const { asPath } = router;
+  const path = asPath.split('/');
+
   const { loading, error, data } = useQuery(MEAL_QUERY, {
     variables: {
-      query: { created_by: { _id: id }, name }
+      query: {
+        created_by: { _id: path[1] },
+        _id: path[2]
+      }
     }
   });
 

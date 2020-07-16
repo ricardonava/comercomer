@@ -1,0 +1,20 @@
+{
+  "pathname": "/[id]/[id]",
+  "route": "/[id]/[id]",
+  "query": { "id": "5f0e710ab8628e9c67565ea7" },
+  "asPath": "/5f0e7002b8628e9c67565ea2/5f0e710ab8628e9c67565ea7",
+  "components": {
+    "/[id]": {
+      "props": {
+        "pageProps": { "id": "5f0e7002b8628e9c67565ea2" },
+        "__N_SSG": true
+      },
+      "__N_SSG": true
+    },
+    "/_app": {},
+    "/[id]/[id]": { "props": { "pageProps": {} } }
+  },
+  "isFallback": false,
+  "basePath": "",
+  "events": {}
+}

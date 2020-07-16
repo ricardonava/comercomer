@@ -1,21 +1,7 @@
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import ErrorMessage from './ErrorMessage';
-import Card from './KitchenCard';
-
-// export const ALL_KITCHENS_QUERY = gql`
-//   query {
-//     kitchens {
-//       _id
-//       cover
-//       direccion
-//       logo
-//       nombre
-//       tel
-//       horario
-//     }
-//   }
-// `;
+import Card from './VenueCard';
 
 const ALL_VENUES_QUERY = gql`
   query {
@@ -23,6 +9,9 @@ const ALL_VENUES_QUERY = gql`
       _id
       name
       address
+      banner
+      logo
+      phone
     }
   }
 `;
@@ -30,8 +19,9 @@ const ALL_VENUES_QUERY = gql`
 export default function KitchenList() {
   const { loading, error, data } = useQuery(ALL_VENUES_QUERY);
 
-  if (error) return <ErrorMessage message="Error al cargar las cocinas." />;
+  if (error) return <ErrorMessage message="Error loading venues." />;
   if (loading) return <div>Loading</div>;
+
   const { venues } = data;
 
   return (

@@ -1,10 +1,10 @@
 import App from '../components/App';
-import KitchenList from '../components/KitchenList';
+import VenueList from '../components/VenueList';
 
 const Home = () => {
   return (
     <App>
-      <KitchenList />
+      <VenueList />
     </App>
   );
 };

@@ -1,13 +1,10 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 
 const MealCard = ({ props }) => {
-  const router = useRouter();
-  const { id } = router.query;
-  const { name, price, thumb, description } = props;
+  const { _id, name, price, thumb, description, created_by } = props;
   return (
-    <Link href="/cocina/[id]/[comida]" as={`/cocina/${id}/${name}`}>
+    <Link href="[id]/[meal]" as={`${created_by._id}/${_id}`}>
       <div className="box">
         <div className="media">
           {/* <div className="media-left"></div> */}

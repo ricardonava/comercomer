@@ -1,4 +1,5 @@
 import { useQuery } from '@apollo/react-hooks';
+
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import ErrorMessage from './ErrorMessage';
@@ -7,11 +8,13 @@ import Card from './MealCard';
 export const ALL_MEALS_QUERY = gql`
   query meals($query: MealQueryInput) {
     meals(query: $query) {
+      _id
       name
       description
       price
       created_by {
         name
+        _id
       }
     }
   }
