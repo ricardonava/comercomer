@@ -12,6 +12,7 @@ const ALL_VENUES_QUERY = gql`
       banner
       logo
       phone
+      slug
     }
   }
 `;

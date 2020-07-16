@@ -17,35 +17,31 @@ export const MEAL_QUERY = gql`
   }
 `;
 
-export const MEALS_ID_QUERY = gql`
-  query {
-    meals {
-      _id
-    }
-  }
-`;
-
 const Meal = () => {
   const router = useRouter();
-  const { asPath } = router;
-  const path = asPath.split('/');
+  const { query } = router;
 
   const { loading, error, data } = useQuery(MEAL_QUERY, {
     variables: {
       query: {
-        created_by: { _id: path[1] },
-        _id: path[2]
+        created_by: { slug: query.venue },
+        slug: query.meal
       }
     }
   });
 
   if (error) return <ErrorMessage message="Error al cargar las cocinas." />;
-  if (loading) return <div>Loading</div>;
+  if (loading)
+    return (
+      <App>
+        <div>Loading</div>
+      </App>
+    );
   const { meal } = data;
   return (
     <App>
       <div>
-        <p>Hola Mundo {meal.name}</p>
+        <p>{meal.name}</p>
       </div>
     </App>
   );

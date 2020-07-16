@@ -4,7 +4,7 @@ import Link from 'next/link';
 // const date = new Date();
 
 const MealCard = ({ props }) => {
-  const { _id, name, address } = props;
+  const { _id, name, address, slug } = props;
   // const dashName = name.replace(/\s+/g, '-');
   // console.log(dashName);
   return (
@@ -29,7 +29,7 @@ const MealCard = ({ props }) => {
           <br /> */}
           <address>{address}</address>
         </p>
-        <Link href="/[id]" as={`/${_id}`}>
+        <Link href="/[venue]" as={`/${slug}`}>
           <span className="button is-fullwidth is-orange title is-5 is-medium">
             MENU
           </span>

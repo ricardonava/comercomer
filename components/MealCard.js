@@ -2,9 +2,9 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 const MealCard = ({ props }) => {
-  const { _id, name, price, thumb, description, created_by } = props;
+  const { _id, name, price, thumb, description, created_by, slug } = props;
   return (
-    <Link href="[id]/[meal]" as={`${created_by._id}/${_id}`}>
+    <Link href="[venue]/[meal]" as={`${created_by.slug}/${slug}`}>
       <div className="box">
         <div className="media">
           {/* <div className="media-left"></div> */}

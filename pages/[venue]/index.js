@@ -9,15 +9,15 @@ import { initializeApollo } from '../../lib/RealmApolloClient';
 const ALL_VENUES_QUERY = gql`
   query {
     venues {
-      _id
+      slug
     }
   }
 `;
 
-const Kitchen = ({ id }) => {
+const Kitchen = ({ venue }) => {
   return (
     <App>
-      <MealList id={id} />
+      <MealList venue={venue} />
     </App>
   );
 };
@@ -29,21 +29,21 @@ export async function getStaticPaths() {
     query: ALL_VENUES_QUERY
   });
   const paths = data.venues.map((venue) => ({
-    params: { id: venue._id }
+    params: { venue: venue.slug }
   }));
 
   return {
     paths,
-    fallback: true
+    fallback: false
   };
 }
 
 export async function getStaticProps({ params }) {
-  const { id } = params;
+  const { venue } = params;
 
   return {
     props: {
-      id
+      venue
     },
     unstable_revalidate: 1
   };

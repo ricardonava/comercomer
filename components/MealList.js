@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/react-hooks';
-
 import gql from 'graphql-tag';
 import PropTypes from 'prop-types';
 import ErrorMessage from './ErrorMessage';
@@ -12,7 +11,9 @@ export const ALL_MEALS_QUERY = gql`
       name
       description
       price
+      slug
       created_by {
+        slug
         name
         _id
       }
@@ -20,9 +21,9 @@ export const ALL_MEALS_QUERY = gql`
   }
 `;
 
-const MealList = ({ id }) => {
+const MealList = ({ venue }) => {
   const { loading, error, data } = useQuery(ALL_MEALS_QUERY, {
-    variables: { query: { created_by: { _id: id } } }
+    variables: { query: { created_by: { slug: venue } } }
   });
 
   if (error) return <ErrorMessage message="Error al cargar las cocinas." />;
@@ -42,7 +43,7 @@ const MealList = ({ id }) => {
       <div className="columns is-multiline">
         {meals.map((meal) => (
           <div className="column is-one-third">
-            <Card props={meal} key={id} />
+            <Card props={meal} key={venue} />
           </div>
         ))}
       </div>
@@ -51,7 +52,7 @@ const MealList = ({ id }) => {
 };
 
 MealList.propTypes = {
-  id: PropTypes.string.isRequired
+  venue: PropTypes.string.isRequired
 };
 
 export default MealList;
