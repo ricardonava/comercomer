@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 import { useRouter } from 'next/router';
 import App from '../../components/App';
 import ErrorMessage from '../../components/ErrorMessage';
+import MealComponent from '../../components/MealComponent';
 
 export const MEAL_QUERY = gql`
   query meal($query: MealQueryInput) {
@@ -37,12 +38,9 @@ const Meal = () => {
         <div>Loading</div>
       </App>
     );
-  const { meal } = data;
   return (
     <App>
-      <div>
-        <p>{meal.name}</p>
-      </div>
+      <MealComponent data={data} />
     </App>
   );
 };
