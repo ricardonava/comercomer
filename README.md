@@ -1,7 +1,5 @@
 # ComerComer
 
-
-
 ## Instructions
 
 First install packages then run the development server:
@@ -13,15 +11,16 @@ yarn
 ```
 
 ```bash
-npm run dev
+npm run build
+npm run start
 # or
-yarn dev
+yarn build
+yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 # Serverless Stack
-
 
 ## Next.js
 
