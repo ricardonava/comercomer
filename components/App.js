@@ -3,7 +3,7 @@ import Footer from './Footer';
 import Header from './Header';
 import NavBar from './NavBar';
 
-export default function App({ children }) {
+const App = ({ children }) => {
   return (
     <>
       <Header />
@@ -14,8 +14,10 @@ export default function App({ children }) {
       <Footer />
     </>
   );
-}
+};
 
 App.propTypes = {
   children: PropTypes.element.isRequired
 };
+
+export default App;

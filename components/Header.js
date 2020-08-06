@@ -1,10 +1,10 @@
 import Head from 'next/head';
 
-export default function Header() {
+const Header = () => {
   return (
     <header>
       <Head>
-        <title>Comer Comer</title>
+        <title>comer comer</title>
         <link rel="icon" href="/favicon.ico" />
         <script
           defer
@@ -13,4 +13,6 @@ export default function Header() {
       </Head>
     </header>
   );
-}
+};
+
+export default Header;

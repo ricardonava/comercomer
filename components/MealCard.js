@@ -1,32 +1,30 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/no-unused-prop-types */
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 const MealCard = ({ props }) => {
-  const { _id, name, price, thumb, description, created_by, slug } = props;
+  const { name, price, description, created_by: createdBy, slug } = props;
   return (
-    <Link href="[venue]/[meal]" as={`${created_by.slug}/${slug}`}>
-      <div className="box">
-        <div className="media">
-          {/* <div className="media-left"></div> */}
-          <div className="media-content">
-            <p className="title is-4">{name}</p>
-            <p className="subtitle is-6">{description}</p>
-          </div>
-          {/* <div className="media-right">
-            <figure className="image is-128x128">
-              <img className="is-rounded" src={thumb} alt="Food Thumbnail" />
-            </figure>
-          </div> */}
-        </div>
-
-        <div className="content">
-          <p className="title is-5">
-            {price}
-            <span className="subtitle is-6"> USD</span>
-          </p>
+    <div className="box">
+      <div className="media">
+        <div className="media-content">
+          <p className="title is-4">{name}</p>
+          <p className="subtitle is-6">{description}</p>
         </div>
       </div>
-    </Link>
+      <div className="content">
+        <p className="title is-5">
+          {price}
+          <span className="subtitle is-6"> USD</span>
+        </p>
+      </div>
+      <Link href="[venue]/[meal]" as={`${createdBy.slug}/${slug}`}>
+        <span className="button is-fullwidth is-orange title is-5 is-medium">
+          INFO
+        </span>
+      </Link>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export default function ErrorMessage({ message }) {
+const ErrorMessage = ({ message }) => {
   return (
     <aside>
       {message}
@@ -14,8 +14,10 @@ export default function ErrorMessage({ message }) {
       `}</style>
     </aside>
   );
-}
+};
 
 ErrorMessage.propTypes = {
   message: PropTypes.string.isRequired
 };
+
+export default ErrorMessage;

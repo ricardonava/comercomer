@@ -17,7 +17,7 @@ const ALL_VENUES_QUERY = gql`
   }
 `;
 
-export default function KitchenList() {
+const KitchenList = () => {
   const { loading, error, data } = useQuery(ALL_VENUES_QUERY);
 
   if (error) return <ErrorMessage message="Error loading venues." />;
@@ -36,4 +36,6 @@ export default function KitchenList() {
       </div>
     </section>
   );
-}
+};
+
+export default KitchenList;
